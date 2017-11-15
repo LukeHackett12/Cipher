@@ -17,9 +17,20 @@ public class CaesarCipher{
         System.out.print("The encrypted message is: ");
         for(int i = 0; i < sentence.length; i++){
             char[] word = sentence[i].toCharArray();
+
             for(int j = 0; j < word.length; j++){
-                int temp = (int)word[j]-97;
-                int shifted = ((temp + key) % 26) + 97;
+                int temp = (int)word[j];
+                int shifted = 0;
+
+                //if lowercase
+                if(temp >= 97 && temp <= 122){
+                    shifted = (((temp-97) + key) % 26) + 97;
+                }
+                //else if capital
+                else if(temp >= 65 && temp <= 90){
+                    shifted = (((temp-65) + key) % 26) + 65;
+                }
+
                 word[j] = (char)shifted;
                 System.out.print(word[j]);
             }
@@ -34,12 +45,17 @@ public class CaesarCipher{
             for(int i = 0; i < sentence.length; i++){
                 char[] word = sentence[i].toCharArray();
                 for(int j = 0; j < word.length; j++){
-                    int temp = (int)word[j] - 97;
+                    int temp = (int)word[j];
                     int shifted = 0;
-                    if(temp - key >= 0)
-                        shifted = ((temp - key) % 26) + 97;
-                    else
-                        shifted = (temp - key) + 123;
+
+                    //if lowercase
+                    if(temp >= 97 && temp <= 122){
+                        shifted = (((temp-97) - key) % 26) + 97;
+                    }
+                    //else if capital
+                    else if(temp >= 65 && temp <= 90){
+                        shifted = (((temp-65) - key) % 26) + 65;
+                    }
 
                     word[j] = (char)shifted;
                     System.out.print(word[j]);
