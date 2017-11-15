@@ -52,11 +52,11 @@ public class CaesarCipher{
                     int shifted = 0;
                     //if lowercase
                     if(temp >= 97 && temp <= 122){
-                        shifted = (((temp-97) + key) % 26) + 97;
+                        shifted = (((temp-97) - key) % 26) + 97;
                     }
                     //else if capital
                     else if(temp >= 65 && temp <= 90){
-                        shifted = (((temp-65) + key) % 26) + 65;
+                        shifted = (((temp-65) - key) % 26) + 65;
                     }
 
                     word[j] = (char)shifted;
@@ -65,6 +65,7 @@ public class CaesarCipher{
                 sentence[i] = new String(word);
                 System.out.print(" ");
             }
+            System.out.println();
         }
     }
 }
