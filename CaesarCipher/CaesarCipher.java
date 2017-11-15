@@ -26,13 +26,16 @@ public class CaesarCipher{
             sentence[i] = new String(word);
             System.out.print(" ");
         }
+
         System.out.println();
         //Optionally decrypt
         System.out.print("Do you want to decrypt:(y/n) ");
         if(input.hasNext("y")){
             System.out.print("The decrypted message is: ");
+
             for(int i = 0; i < sentence.length; i++){
                 char[] word = sentence[i].toCharArray();
+
                 for(int j = 0; j < word.length; j++){
                     int temp = (int)word[j] - 97;
                     int shifted = 0;
