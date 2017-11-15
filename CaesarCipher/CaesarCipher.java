@@ -41,7 +41,7 @@ public class CaesarCipher{
         System.out.println();
         //Optionally decrypt
         System.out.print("Do you want to decrypt:(y/n) ");
-        if(input.hasNext("y")){
+        if(input.hasNext("y") || input.hasNext("Y")){
             System.out.print("The decrypted message is: ");
 
             for(int i = 0; i < sentence.length; i++){
@@ -50,14 +50,13 @@ public class CaesarCipher{
                 for(int j = 0; j < word.length; j++){
                     int temp = (int)word[j];
                     int shifted = 0;
-
                     //if lowercase
                     if(temp >= 97 && temp <= 122){
-                        shifted = (((temp-97) - key) % 26) + 97;
+                        shifted = (((temp-97) + key) % 26) + 97;
                     }
                     //else if capital
                     else if(temp >= 65 && temp <= 90){
-                        shifted = (((temp-65) - key) % 26) + 65;
+                        shifted = (((temp-65) + key) % 26) + 65;
                     }
 
                     word[j] = (char)shifted;
