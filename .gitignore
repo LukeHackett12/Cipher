@@ -1,0 +1,13 @@
+#intellij files
+.idea
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.zip
+*.tar.gz
